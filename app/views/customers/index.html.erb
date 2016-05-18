@@ -13,9 +13,6 @@
                 placeholder="First Name, Last Name or Email Adderss"
                 ng-change="search(keywords)" 
                 ng-model="keywords">
-        <span class="input-group-btn">
-        <button class="btn btn-primary btn-lg" ng-click="search(keywords)">Find Customers</button>
-        </span>
       </div>
     </form>
     <h1 class="searchedFor" ng-if="searchedFor">
@@ -23,7 +20,7 @@
     </h1>
   </section>
     <%= render partial: "pager", locals: { keywords: @keywords, page: @page } %>
-    
+
   <ol class="list-group">
     
       <li class="list-group-item clearfix" ng-repeat="customer in customers">
