@@ -1,0 +1,13 @@
+<% last_page = (page + 1) == @number_of_pages %>
+
+<nav>
+  <ul class="pager">
+    <li class="previous <%= page == 0 ? 'hide' : '' %>">
+      <%= link_to_if page > 0, "&larr; Previous".html_safe, customers_path(keywords: keywords, page: page -1) %>
+    </li>
+    Page <%= page + 1 %> of <%= @number_of_pages.to_s %>
+    <li class="next <%= 'hide' if last_page %>">
+      <%= link_to_unless last_page, "Next &rarr;".html_safe, customers_path(keywords: keywords, page: page + 1) %>
+    </li>
+  </ul>
+</nav>
