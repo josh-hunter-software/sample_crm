@@ -15,6 +15,10 @@ class CustomersController < ApplicationController
     else
       @customers = []
     end
-    @number_of_pages = (query.count%PAGE_SIZE) == 0 ? (query.count/PAGE_SIZE) : (query.count/PAGE_SIZE + 1)
+
+    respond_to do |format|
+      format.html {}
+      format.json { render json: @customers }
+    end
   end
 end
