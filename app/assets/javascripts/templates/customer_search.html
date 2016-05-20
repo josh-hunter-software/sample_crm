@@ -1,0 +1,54 @@
+<header>
+    <h1 class="h2">Customer Search</h1>
+  </header>
+
+  <section class="search-form">
+    <form>
+      <div class="input-group input-group-lg col-sm-12">
+        <label for="keywords" class="sr-only">Keywords</label>
+        <input type="text" 
+                name="keywords" 
+                class="form-control input-lg" 
+                placeholder="First Name, Last Name or Email Adderss"
+                ng-change="search(keywords)" 
+                ng-model="keywords">
+      </div>
+    </form>
+  </section>
+  <section class="search-results" ng-if="customers.length > 0">
+    <nav>
+      <ul class="pager">
+        <li class="previous">
+          <a href="" ng-click="previousPage()">&larr; Previous</a>
+        </li>
+
+        <li class="next">
+          <a href="" ng-click="nextPage()">&rarr; Next</a>
+        </li>
+      </ul>
+    </nav>
+
+    <ol class="list-group">
+        <li class="list-group-item clearfix" ng-repeat="customer in customers">
+          <h2 class="h3">{{ customer.first_name }} {{ customer.last_name }} <small>{{ customer.username }}</small>
+            <div class="pull-right">
+              <button class="btn btn-small btn-primary" ng-click="viewDetails(customer)">
+                View Details...
+              </button>
+            </div>
+          </h2>
+        </li>
+    </ol>
+    
+    <nav>
+      <ul class="pager">
+        <li class="previous">
+          <a href="" ng-click="previousPage()">&larr; Previous</a>
+        </li>
+
+        <li class="next">
+          <a href="" ng-click="nextPage()">&rarr; Next</a>
+        </li>
+      </ul>
+    </nav>
+  </section>
