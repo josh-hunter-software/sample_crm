@@ -16,7 +16,7 @@
       </div>
     </form>
   </section>
-  <section class="search-results">
+  <section class="search-results" ng-if="customers.length > 0">
     <%= render partial: "pager", locals: { keywords: @keywords, page: @page } %>
 
     <ol class="list-group">
